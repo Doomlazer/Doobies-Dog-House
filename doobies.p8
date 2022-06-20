@@ -442,7 +442,7 @@ end
 -->8
 --roll customer
 function roll_cust()
- local x=flr(rnd(5)+1)
+ local x=flr(rnd(6)+1)
  if (x==1) then
   cust.name="bad frogger"
   cust.ani={51,52}
