@@ -1,4 +1,4 @@
 # Doobies
  pico-8 game 
 
-Click link to play: https://doomlazer.github.io/Doobies/
+Click link to play: https://doomlazer.github.io/Doobies-Dog-House/
