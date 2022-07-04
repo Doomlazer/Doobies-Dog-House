@@ -100,7 +100,7 @@ function _init()
 
  roll_cust()
  custdelay=10
- rating=4.1
+ rating=2.1
  
  stove=99
  loctext=""
@@ -129,7 +129,7 @@ function _update60()
  if (t%50==0) then 
   if (cust.s==2) then cust.s=1 else cust.s=2 end
  end
- if (t%9000==0) then
+ if (t%5000==0) then
   adj_price()
  end
  _upd()
