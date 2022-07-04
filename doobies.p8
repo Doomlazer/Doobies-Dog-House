@@ -95,9 +95,11 @@ function _init()
  cust.tol=flr(rnd(10)+1)
  cust.t=0
  cust.mode=0
+ cust.prev=1
+ cust.roll=2
 
  roll_cust()
- custdelay=50
+ custdelay=10
  rating=4.1
  
  stove=99
@@ -135,8 +137,8 @@ end
 
 function _draw()
  _drw()
- --print(p_x,10,100)
- --print(p_y,10,110)
+ --print(cust.mode,10,100)
+ --print(custdelay,10,110)
 end 
 
 function adj_price()
@@ -379,7 +381,9 @@ end
 
 function update_game()
  if (t%100==0) then
-  custdelay-=1
+  if (cust.mode==0) or (open==2 and custdelay>1) then 
+   custdelay-=1
+  end
  end
  if (t%50==0) then 
   upd_time()
@@ -391,7 +395,7 @@ function update_game()
     if (rating>1) then 
      custdelay=23-flr(rating*4)
     else
-     custdelay=flr(rnd(300)+10)
+     custdelay=flr(rnd(200)+10)
     end
     roll_cust()
     cust_ai()
@@ -882,9 +886,9 @@ function cust_ai()
     p_rest-=2
    else
     stattext2=cust.good
-    rating+=.25
+    rating+=.15
     if (following==true) then 
-     rating+=.75
+     rating+=.35
     end
     if rating>5 then rating=5 end
     local tip = flr(rnd(5)+1)
@@ -905,7 +909,7 @@ function cust_ai()
    s3col=7
    cust.mode=0
    p_hold=0
-   rating-=.1
+   rating-=.01
    if (rating<0) then rating=0 end
 	 elseif (cust.mode==667) then
 	  stattext1=cust.name.." whines:"  
@@ -913,7 +917,7 @@ function cust_ai()
    s3col=8
    stattext3="they give you a dirty look."
    p_rest-=3
-   rating-=.35
+   rating-=.25
    if (rating<0) then rating=0 end
    cust.mode=0
   elseif (cust.mode==668) then
@@ -947,12 +951,21 @@ end
 -->8
 --roll customer
 function roll_cust()
- if (open==1) then
+-- if (open==1) then
   cust.mode=1
- else
-  cust.mode=666
+-- else
+--  cust.mode=666
+-- end
+ cust.roll=flr(rnd(6)+1)
+ if (cust.roll==cust.prev) then
+  if (cust.roll>1) then
+   cust.roll=1
+  else
+   cust.roll=flr(rnd(5)+2)
+  end
  end
- local x=flr(rnd(6)+1)
+ local x = cust.roll
+ cust.prev = cust.roll
  if (x==1) then
   cust.name="bad frogger"
   cust.ani={51,52}
