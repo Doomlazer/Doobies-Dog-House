@@ -205,7 +205,7 @@ function draw_text()
  print('doobies dog house', 19, 17, 1)
  if (open==1) then
   if (signflicker==5) then
-  print(' oobies  og  ouse', 19, 17, 8)
+  print(' oobie   og hous', 19, 17, 8)
   else 
   print('doobies dog house', 19, 17, 8)
   end 
