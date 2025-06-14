@@ -1218,6 +1218,7 @@ function draw_title()
  print("reform, alabama",37-1,85-1,7)
   print("june 2014",50,95,2)
  print("june 2014",50-1,95-1,7)
+ print("v1.1",60,126,7)
  spr(48, dx, 110)
  local ani={91,92}
  spr(ani[ts], dx-20,110)
