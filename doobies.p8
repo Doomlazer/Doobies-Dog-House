@@ -155,13 +155,9 @@ function adj_price()
 end
 
 function pricecheck()
- if cust then
-  local mu = price[cust.want]-aprice[cust.want]
-  if (mu<=flr((aprice[cust.want]/2)+cust.tol)) then
-    return true
-  else
-    return false
-  end
+ local mu = price[cust.want]-aprice[cust.want]
+ if (mu<=flr((aprice[cust.want]/2)+cust.tol)) then
+  return true
  else
   return false
  end
@@ -652,7 +648,7 @@ function do_shop()
  		end
  	end	
  	if (fget(x,6)==true) then
- 	 if (pricecheck()==true) and (cust.mode==1) and (p_hold>0) then
+ 	 if (cust.mode==1) and (pricecheck()==true) and (p_hold>0) then
  	 	p_hold=0
  	 	cust.mode=2
  	 	cust_ai()
@@ -1218,7 +1214,7 @@ function draw_title()
  print("reform, alabama",37-1,85-1,7)
   print("june 2014",50,95,2)
  print("june 2014",50-1,95-1,7)
- print("v1.1",60,123,7)
+ print("v1.2",60,123,7)
  spr(48, dx, 110)
  local ani={91,92}
  spr(ani[ts], dx-20,110)
