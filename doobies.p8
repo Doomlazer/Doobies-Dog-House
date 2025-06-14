@@ -155,9 +155,13 @@ function adj_price()
 end
 
 function pricecheck()
- local mu = price[cust.want]-aprice[cust.want]
- if (mu<=flr((aprice[cust.want]/2)+cust.tol)) then
-  return true
+ if cust then
+  local mu = price[cust.want]-aprice[cust.want]
+  if (mu<=flr((aprice[cust.want]/2)+cust.tol)) then
+    return true
+  else
+    return false
+  end
  else
   return false
  end
